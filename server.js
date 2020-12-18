@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('express-cors');
-const bodyParser = require('body-parser');
 const port = process.env.PORT || 3001;
 const app = express();
 const { users, sportTeams, animals } = require('./data.js');
@@ -16,8 +15,7 @@ app.use(cors({
   allowedOrigins: ['localhost:3000']
 }));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.get('/api/v1/users', (req, res) => {
   res.status(200).json(app.locals.users);
