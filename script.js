@@ -59,5 +59,7 @@ function removePost() {
   fetch(("http://localhost:3001/api/v1/animals/" + id), {
     method: 'DELETE',
   })
-    .then(response => response.json());
+    .then(response => response.json()); 
+ 
+  clearInput(deleteInput);  
 }
