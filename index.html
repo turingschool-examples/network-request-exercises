@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Animal API Practice</title>
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sintony&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal API Practice</title>
+  </head>
     <body>
-        <h1>Animal Data</h1>
-        <div class="wrapper">
-            <button class="command" id="get">GET</button>
-            <section class="data" id="data-display"></section>
-            <button class="command" id="post">POST</button>
-            <form class="post-form" id="add-data"></form>
-            <button class="command" id="delete">DELETE</button>
-            <form class="delete-form" id="delete-data"></form>
+      <h1>Animal Data</h1>
+      <div class="get-section">
+        <section class="data" id="data-display"></section>
+        <button class="command" id="get">GET</button>
+      </div>  
+      <div class="wrapper">
+        <div class="post-section">
+          <label class="name" for="name">animal name</label>
+          <input type="text" id="name" required>
+          <label class="diet" for="diet">what do they like to munch on?</label>
+          <input type="text" id="diet" required>
+          <label class="fun_fact"for="fact">fun fact</label>
+          <input type="text" id="fact" required>
+          <button class="command" id="post">POST</button>
         </div>
-    <script src="data.js"></script>    
-    <script src="script.js"></script>
-    </body>
+      </div>  
+      <div class="delete-section">
+        <label for="delete-name">enter animal name</label>
+        <input type="text" id="delete-name" required>
+        <button class="command" id="delete">DELETE</button>
+      </div>
+  <script src="data.js"></script>    
+  <script src="script.js"></script>
+  </body>
 </html>

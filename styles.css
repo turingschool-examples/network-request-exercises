@@ -1,0 +1,26 @@
+* {
+  font-family: 'Sintony', sans-serif;
+}
+
+html {
+  background-color: pink;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.get-section,
+.post-section,
+.delete-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 2pt rgb(117, 23, 23);
+  border-radius: 5%;
+}
