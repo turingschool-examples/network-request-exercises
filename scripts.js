@@ -1,17 +1,18 @@
 const displayArea = document.querySelector('.display-area')
+const newAnimalButton = document.getElementById('new-animal-button')
 
 
 const createCards = (animals) => {
-  displayArea.innerHTML = ''
-  animals.forEach(animal => {
-    displayArea.innerHTML += `
+  displayArea.innerHTML = animals.reduce((display, animal) => {
+    display += `
       <div class="animal-card">
         <h2>${animal.name.toUpperCase()}</h2>
         <h3> ID: ${animal.id}</h3>
         <h3> DIET: ${animal.diet}</h3>
         <h3> FUN FACT: ${animal.fun_fact}<h3>
       </div>`
-  })
+    return display
+  }, '')
 }
 
 const loadAnimals = () => {
@@ -20,4 +21,33 @@ const loadAnimals = () => {
   .then(animals => createCards(animals))
 }
 
+const getInputs = () => {
+  return {
+    id: document.getElementById('id').value,
+    name: document.getElementById('name').value,
+    diet: document.getElementById('diet').value,
+    fun_fact: document.getElementById('fun-fact').value
+  }
+}
+
+const clearInputs = () => {
+  inputs = document.querySelectorAll('input')
+  inputs.forEach(input => input.value = '')
+}
+
+const addAnimal = () => {
+  fetch('http://localhost:3001/api/v1/animals', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(getInputs())
+  })
+}
+
 window.addEventListener('load', loadAnimals)
+newAnimalButton.addEventListener('click', function() {
+  addAnimal()
+  loadAnimals()
+  clearInputs()
+})
