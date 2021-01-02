@@ -1,5 +1,6 @@
 const displayArea = document.querySelector('.display-area')
 const newAnimalButton = document.getElementById('new-animal-button')
+const deleteButton = document.getElementById('delete-button')
 
 
 const createCards = (animals) => {
@@ -45,9 +46,20 @@ const addAnimal = () => {
   })
 }
 
+const deleteAnimal = () => {
+  fetch(`http://localhost:3001/api/v1/animals/${document.getElementById('id').value}`, {
+    method: 'DELETE'
+  })
+}
+
+
 window.addEventListener('load', loadAnimals)
 newAnimalButton.addEventListener('click', function() {
   addAnimal()
   loadAnimals()
   clearInputs()
+})
+deleteButton.addEventListener('click', function() {
+  deleteAnimal()
+  loadAnimals()
 })
