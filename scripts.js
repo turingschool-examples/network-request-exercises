@@ -44,22 +44,22 @@ const addAnimal = () => {
     },
     body: JSON.stringify(getInputs())
   })
+
+  .then(setTimeout(loadAnimals, 5))
+  .then(clearInputs())
 }
 
 const deleteAnimal = () => {
   fetch(`http://localhost:3001/api/v1/animals/${document.getElementById('id').value}`, {
     method: 'DELETE'
   })
+
+  .then(setTimeout(loadAnimals, 5))
+  .then(clearInputs())
 }
 
 
 window.addEventListener('load', loadAnimals)
-newAnimalButton.addEventListener('click', function() {
-  addAnimal()
-  loadAnimals()
-  clearInputs()
-})
-deleteButton.addEventListener('click', function() {
-  deleteAnimal()
-  loadAnimals()
-})
+newAnimalButton.addEventListener('click', addAnimal)
+
+deleteButton.addEventListener('click', deleteAnimal)

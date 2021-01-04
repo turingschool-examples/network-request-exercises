@@ -1,0 +1,31 @@
+main {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+}
+
+button {
+  margin: 5%;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.animal-card {
+  border: solid;
+  border-color: black;
+
+  margin: 1%;
+  padding: 3%;
+}
