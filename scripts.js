@@ -45,8 +45,8 @@ const addAnimal = () => {
     body: JSON.stringify(getInputs())
   })
 
-  .then(setTimeout(loadAnimals, 5))
-  .then(clearInputs())
+  .then(loadAnimals)
+  .then(clearInputs)
 }
 
 const deleteAnimal = () => {
@@ -54,8 +54,8 @@ const deleteAnimal = () => {
     method: 'DELETE'
   })
 
-  .then(setTimeout(loadAnimals, 5))
-  .then(clearInputs())
+  .then(loadAnimals)
+  .then(clearInputs)
 }
 
 
